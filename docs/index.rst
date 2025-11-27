@@ -32,7 +32,7 @@ Visit the `repository on GitHub <https://github.com/MarcusAichmayr/sign_and_elem
     pp. 412--438.
     doi: `10.1137/18M1178153 <https://doi.org/10.1137/18M1178153>`_.
 
-.. [MPSZ25] Stefan Müller, Michael Predl, Diana Széliová and Jürgen Zanghellini.
+.. [MPSZ25] Stefan Müller, Michael Predl, Diana Széliová, and Jürgen Zanghellini.
     "Elementary vectors reveal minimal interactions in microbial communities".
     In: bioRxiv (2025)
     doi: `10.1101/2025.07.30.667663 <https://doi.org/10.1101/2025.07.30.667663>`_.
