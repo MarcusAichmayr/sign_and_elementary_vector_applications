@@ -1,9 +1,13 @@
 r"""
-ECXS symbolic example
+ECXs symbolic example of [MPSZ25]_.
+
+ECXs symbolic example
 =====================
 
-After installing the packages `elementary_vectors <https://github.com/MarcusAichmayr/elementary_vectors>`_ and `sign_vectors <https://github.com/MarcusAichmayr/sign_vectors>`_,
-we import them::
+We compute the nonnegative circuits (elementary vectors) of a matrix with a parameter appearing in [MPSZ25]_.
+
+The packages `elementary_vectors <https://github.com/MarcusAichmayr/elementary_vectors>`_ and `sign_vectors <https://github.com/MarcusAichmayr/sign_vectors>`_
+are required::
 
     sage: from elementary_vectors import *
     sage: from sign_vectors import *
