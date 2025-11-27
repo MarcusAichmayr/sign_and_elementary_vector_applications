@@ -96,26 +96,38 @@ We consider an oriented matroid given by a matrix and compute the cocircuits and
 Chemical reaction networks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See :func:`sign_crn.reaction_networks.ReactionNetwork`
-for a user-friendly class to define (chemical) reaction networks.
+The package `sign_crn <https://github.com/MarcusAichmayr/sign_crn>`_
+offers a user-friendly class to define (chemical) reaction networks::
 
-Several sign vector conditions for such networks are implemented
-in the package `sign_crn <https://github.com/MarcusAichmayr/sign_crn>`_.
+    sage: from sign_crn import *
+    sage: var("a, b, c")
+    (a, b, c)
+    sage: species("A, B, C, D, E")
+    (A, B, C, D, E)
+    sage: rn = ReactionNetwork()
+    sage: rn.add_complexes([(0, A + B, a * A + b * B), (1, C), (2, D, c * A + D), (3, A), (4, E)])
+    sage: rn.add_reactions([(0, 1), (1, 0), (1, 2), (2, 0), (3, 4), (4, 3)])
+    sage: rn
+    Reaction network with 5 complexes, 6 reactions and 5 species.
+    sage: rn.complexes_stoichiometric
+    {0: A + B, 1: C, 2: D, 3: A, 4: E}
+    sage: rn.complexes_kinetic_order
+    {0: a*A + b*B, 1: C, 2: c*A + D, 3: A, 4: E}
+
+Several conditions for such networks based on sign vectors and maximal minors are implemented in this package.
 
 Robustness
 **********
 
-Given is a chemical reaction network involving five complexes.
-To examine robustness of CBE, we compute the covectors corresponding to the resulting subspaces::
+To study robustness of CBE, we can compute the covectors of the stoichiometric and the kinetic-order matrix::
 
-    sage: from sign_vectors import *
-    sage: S = matrix([[-1, -1, 1, 0, 0], [0, 0, -1, 1, 0], [-1, 0, 0, 0, 1]])
-    sage: S
-    [-1 -1  1  0  0]
-    [ 0  0 -1  1  0]
-    [-1  0  0  0  1]
-    sage: om = OrientedMatroid(S)
-    sage: om.covectors()
+    sage: rn.stoichiometric_matrix
+    [-1  1  0  1 -1  1]
+    [-1  1  0  1  0  0]
+    [ 1 -1 -1  0  0  0]
+    [ 0  0  1 -1  0  0]
+    [ 0  0  0  0  1 -1]
+    sage: OrientedMatroid(rn.stoichiometric_matrix.T).covectors()
     {(00000),
      (--+-+),
      (0++-+),
@@ -175,14 +187,16 @@ To examine robustness of CBE, we compute the covectors corresponding to the resu
      (+++-0),
      (-+-0+),
      (0+0-+)}
-    sage: var("a, b, c")
-    (a, b, c)
-    sage: St = matrix([[-a, -b, 1, 0, 0], [c, 0, -1, 1, 0], [-1, 0, 0, 0, 1]])
-    sage: St
-    [-a -b  1  0  0]
-    [ c  0 -1  1  0]
-    [-1  0  0  0  1]
-    sage: OrientedMatroid(St(a=2, b=1, c=1)).covectors()
+
+To compute the covectors of the kinetic-order matrix, we need to fix the parameters::
+
+    sage: rn.kinetic_order_matrix
+    [   -a     a     c a - c    -1     1]
+    [   -b     b     0     b     0     0]
+    [    1    -1    -1     0     0     0]
+    [    0     0     1    -1     0     0]
+    [    0     0     0     0     1    -1]
+    sage: OrientedMatroid(rn.kinetic_order_matrix(a=2, b=1, c=1).T).covectors()
     {(00000),
      (--+-+),
      (0++-+),
@@ -255,21 +269,14 @@ To examine robustness of CBE, we compute the covectors corresponding to the resu
      (-+-0+),
      (-++-0)}
 
-For :math:`a = 2`, :math:`b = 1` and :math:`c = 1`, the covectors of :math:`S` are included in the closure of the covectors of :math:`\widetilde{S}`.
-To consider the general case, we compute the maximal minors of :math:`S` and :math:`\widetilde{S}`::
+For :math:`a = 2`, :math:`b = 1` and :math:`c = 1`, the covectors of the stoichiometric matrix
+are included in the closure of the covectors of the kinetic-order matrix.
 
-    sage: S  = matrix([[1, 0, 1, 1, 1], [0, 1, 1, 1, 0]])
-    sage: S
-    [1 0 1 1 1]
-    [0 1 1 1 0]
-    sage: var("a, b, c")
-    (a, b, c)
-    sage: St = matrix([[1, 0, a, a - c, 1], [0, 1, b, b, 0]])
-    sage: St
-    [    1     0     a a - c     1]
-    [    0     1     b     b     0]
-    sage: from sign_crn import *
-    sage: condition_closure_minors(S, St) # random order
+A more efficient approach to study robustness of CBE
+is to compute the maximal minors of the reduced matrices.
+In this case, we do not need to fix the parameters::
+
+    sage: rn.has_robust_cbe() # random order
     [{a > 0, b > 0, a - c > 0}]
 
 Hence, the network has a unique positive CBE if and only if :math:`a, b > 0` and :math:`a > c`.
@@ -277,9 +284,9 @@ Hence, the network has a unique positive CBE if and only if :math:`a, b > 0` and
 Uniqueness
 **********
 
-We can also use the maximal minors to study uniqueness of CBE::
+Similarly, we can use the maximal minors to study uniqueness of CBE::
 
-    sage: condition_uniqueness_minors(S, St) # random order
+    sage: rn.has_at_most_one_cbe() # random order
     [{a >= 0, b >= 0, a - c >= 0}]
 
 Hence, positive CBE are unique if and only if :math:`a, b \geq 0` and :math:`a \geq c`.
