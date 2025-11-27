@@ -1,14 +1,15 @@
 r"""
 Up-to-date examples of [AMR24]_.
 
+==================================================================================================
 A SageMath Package for Elementary and Sign Vectors with Applications to Chemical Reaction Networks
---------------------------------------------------------------------------------------------------
+==================================================================================================
 
 Here are the up-to-date examples appearing in [AMR24]_ for `ICMS 2024 <https://icms-conference.org/2024/>`_.
 The paper is also available at `ARXIV <https://arxiv.org/abs/2407.12660>`_.
 
 Elementary vectors
-~~~~~~~~~~~~~~~~~~
+==================
 
 Functions dealing with elementary vectors (circuits of a subspace given by a matrix)
 are implemented in the package `elementary_vectors <https://github.com/MarcusAichmayr/elementary_vectors>`_.
@@ -26,7 +27,7 @@ We compute elementary vectors (circuits), using maximal minors::
     [(1, -1, 0, 0), (4, 0, -2, 1), (0, 4, -2, 1)]
 
 Solvability of linear inequality systems
-****************************************
+========================================
 
 Our package `certlin <https://github.com/MarcusAichmayr/certlin>`_
 provides tools for the solvability of linear inequality systems.
@@ -64,7 +65,7 @@ The package can certify whether the system has a solution or not::
 Therefore, the system has a solution.
 
 Sign vectors and oriented matroids
-**********************************
+==================================
 
 The package `sign_vectors <https://github.com/MarcusAichmayr/sign_vectors>`_
 provides functions for sign vectors and oriented matroids.
@@ -94,7 +95,7 @@ We consider an oriented matroid given by a matrix and compute the cocircuits and
      (++-+)}
 
 Chemical reaction networks
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+==========================
 
 The package `sign_crn <https://github.com/MarcusAichmayr/sign_crn>`_
 offers a user-friendly class to define (chemical) reaction networks::
@@ -116,8 +117,8 @@ offers a user-friendly class to define (chemical) reaction networks::
 
 Several conditions for such networks based on sign vectors and maximal minors are implemented in this package.
 
-Robustness
-**********
+Robustness of CBE
+-----------------
 
 To study robustness of CBE, we can compute the covectors of the stoichiometric and the kinetic-order matrix::
 
@@ -281,8 +282,8 @@ In this case, we do not need to fix the parameters::
 
 Hence, the network has a unique positive CBE if and only if :math:`a, b > 0` and :math:`a > c`.
 
-Uniqueness
-**********
+Uniqueness of CBE
+-----------------
 
 Similarly, we can use the maximal minors to study uniqueness of CBE::
 
@@ -292,7 +293,7 @@ Similarly, we can use the maximal minors to study uniqueness of CBE::
 Hence, positive CBE are unique if and only if :math:`a, b \geq 0` and :math:`a \geq c`.
 
 Unique existence of CBE
-***********************
+-----------------------
 
 Now, we consider Example 20 from [MHR19]_.
 Here, we have a parameter :math:`a > 0`.

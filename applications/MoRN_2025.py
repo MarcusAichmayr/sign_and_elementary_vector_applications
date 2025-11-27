@@ -5,8 +5,8 @@ MoRN seminar software showcase 2025.
 Sign Vector Conditions for Reaction Networks
 ============================================
 
-A simple example
-================
+A simple reaction network
+=========================
 
 We define a reaction network::
 
@@ -86,8 +86,8 @@ We update our reaction network with kinetic-order complexes::
      -k_2_0*x_A^c*x_D + k_1_2*x_C,
      k_3_4*x_A - k_4_3*x_E)
 
-Matrices
-========
+Representing matrices
+=====================
 
 The network is defined by the following matrices::
 
@@ -143,13 +143,11 @@ We show some properties of the network::
 Sign vector conditions
 ======================
 
-Uniqueness and existence of complex-balanced equilibria (CBE)
--------------------------------------------------------------
+We study uniqueness and existence of complex-balanced equilibria (CBE).
+See also [MHR19]_.
 
-See [MHR19]_.
-
-Existence
-^^^^^^^^^
+Existence of CBE
+----------------
 
 First, we instantiate the symbolic exponents::
 
@@ -168,8 +166,8 @@ In that case, we obtain conditions on these::
     sage: rn.has_at_most_one_cbe() # random order
     [{a >= 0, a - c >= 0, b >= 0}]
 
-Robustness
-^^^^^^^^^^
+Robustness of CBE
+-----------------
 
 There is at most one CBE for all small perturbations of kinetic orders::
 
@@ -177,7 +175,7 @@ There is at most one CBE for all small perturbations of kinetic orders::
     [{a > 0, a - c > 0, b > 0}]
 
 Exactly one CBE (Deficiency Zero Theorem for GMAK)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------------------------
 
 To check this condition, we need sign vector conditions.
 There is also an involved nondegeneracy condition
@@ -190,8 +188,8 @@ There is exactly one CBE::
     sage: rn_instantiated.has_exactly_one_cbe()
     True
 
-Elementary and sign vectors
----------------------------
+Elementary vectors (circuits)
+=============================
 
 We define a matrix::
 
@@ -207,6 +205,9 @@ We compute the elements with minimal-support in the kernel of `P`::
 
     sage: circuits(P)
     [(4, -2, 1, 0), (6, -3, 0, 1), (0, 0, -3, 2)]
+
+Sign vectors
+============
 
 Next, we compute the sign vectors with minimal support::
 

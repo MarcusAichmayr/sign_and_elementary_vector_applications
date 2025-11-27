@@ -1,6 +1,7 @@
 r"""
 ECXs symbolic example of [MPSZ25]_.
 
+=====================
 ECXs symbolic example
 =====================
 
@@ -66,7 +67,7 @@ We compute all circuits (of the matrix)::
      (mu, 0, mu, 1, -mu, mu, -mu, 0, -mu, 0, -mu + 1, mu)]
 
 Case :math:`0 < \mu < 1`
-------------------------
+========================
 
 We compute the nonnegative circuits of the corresponding oriented matroid::
 
@@ -87,7 +88,7 @@ Using their support, we find the nonnegative circuits (of the matrix)::
      (0, mu^2, 0, mu, mu^2, 0, mu^2, mu, 0, 0, mu, -mu^2 + mu)]
 
 Case :math:`1 < \mu < 2`
-------------------------
+========================
 
 We compute the nonnegative circuits of the corresponding oriented matroid::
 
@@ -108,7 +109,7 @@ Using their support, we find the nonnegative circuits (of the matrix)::
      (mu, mu^2 - mu, mu, mu, mu^2 - mu, mu, mu^2 - mu, mu, 0, 0, 0, -mu^2 + 2*mu)]
 
 Case :math:`\mu = 1`
---------------------
+====================
 
 We compute the nonnegative circuits of the corresponding oriented matroid::
 
