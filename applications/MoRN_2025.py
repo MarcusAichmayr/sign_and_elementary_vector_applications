@@ -177,9 +177,8 @@ There is at most one CBE for all small perturbations of kinetic orders::
 Exactly one CBE (Deficiency Zero Theorem for GMAK)
 --------------------------------------------------
 
-To check this condition, we need sign vector conditions.
-There is also an involved nondegeneracy condition
-which we check using a recursive algorithm
+We use sign vector conditions to check whether there is exactly one CBE.
+There is also a (recursive) degeneracy condition
 that certifies (un)solvability of linear inequality systems with elementary vectors.
 See [AMR24]_ for details.
 
