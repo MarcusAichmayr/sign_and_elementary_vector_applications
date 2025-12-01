@@ -316,7 +316,7 @@ Depending on this parameter, the network has a unique positive CBE::
 The first two conditions depend on the sign vectors corresponding
 to the rows of these matrices which are independent of the specific value for :math:`a`::
 
-    sage: uniqueness_condition_sign_vectors(S, St)
+    sage: uniqueness_condition(S, St)
     True
 
 Hence, there exists at most one equilibrium.
