@@ -295,8 +295,8 @@ Hence, positive CBE are unique if and only if :math:`a, b \geq 0` and :math:`a \
 Unique existence of CBE
 -----------------------
 
-Now, we consider Example 20 from [MHR19]_.
-Here, we have a parameter :math:`a > 0`.
+Now, we consider a network given by two matrices involving a parameter.
+(see Example 20 of [MHR19]_)
 Depending on this parameter, the network has a unique positive CBE::
 
     sage: var("a")
