@@ -67,22 +67,17 @@ We compute all circuits (of the matrix)::
      (mu^2 - mu, 0, mu^2 - mu, mu - 1, mu, mu^2 - mu, mu, mu, mu, 0, -mu^2 + 2*mu - 1, 0),
      (mu, 0, mu, 1, -mu, mu, -mu, 0, -mu, 0, -mu + 1, mu)]
 
+This module offers a utility function to filter for nonnegative vectors::
+
+    sage: from applications.ecxs_symbolic import non_negative_vectors
+
 Case :math:`0 < \mu < 1`
 ========================
 
-We compute the nonnegative circuits of the corresponding oriented matroid::
+::
 
-    sage: forget()
     sage: assume(mu > 0, mu < 1)
-    sage: om = OrientedMatroid(M)
-    sage: nn_om_circuits = [c for c in om.circuits() if c >= 0]
-    sage: nn_om_circuits
-    [(+0++00000++0), (+0++0+0+00++), (0000+0+++00+), (0+0++0++00++)]
-
-Using their support, we find the nonnegative circuits (of the matrix)::
-
-    sage: supports = [c.support() for c in nn_om_circuits]
-    sage: [c for c in elements if c.support() in supports]
+    sage: non_negative_vectors(elements)
     [(mu, 0, mu, 1, 0, 0, 0, 0, 0, mu, -mu + 1, 0),
      (mu^2, 0, mu^2, mu, 0, mu^2, 0, mu, 0, 0, -mu^2 + mu, mu),
      (0, 0, 0, 0, mu, 0, mu, 1, mu, 0, 0, -mu + 1),
@@ -91,19 +86,11 @@ Using their support, we find the nonnegative circuits (of the matrix)::
 Case :math:`1 < \mu < 2`
 ========================
 
-We compute the nonnegative circuits of the corresponding oriented matroid::
+::
 
     sage: forget()
     sage: assume(mu > 1, mu < 2)
-    sage: om = OrientedMatroid(M)
-    sage: nn_om_circuits = [c for c in om.circuits() if c >= 0]
-    sage: nn_om_circuits
-    [(++++++++0+00), (++++++++000+), (+++++++++000), (++++++++00+0)]
-
-Using their support, we find the nonnegative circuits (of the matrix)::
-
-    sage: supports = [c.support() for c in nn_om_circuits]
-    sage: [c for c in elements if c.support() in supports]
+    sage: non_negative_vectors(elements)
     [(mu - 1, mu^2 - 2*mu + 1, mu - 1, mu - 1, 1, mu - 1, 1, 1, -mu^2 + 2*mu, 0, 0, 0),
      (1, mu - 1, 1, 1, mu - 1, mu^2 - 2*mu + 1, mu - 1, mu - 1, 0, -mu^2 + 2*mu, 0, 0),
      (mu^2 - mu, mu, mu^2 - mu, mu, mu, mu^2 - mu, mu, mu, 0, 0, -mu^2 + 2*mu, 0),
@@ -112,19 +99,75 @@ Using their support, we find the nonnegative circuits (of the matrix)::
 Case :math:`\mu = 1`
 ====================
 
-We compute the nonnegative circuits of the corresponding oriented matroid::
+::
 
-    sage: om = OrientedMatroid(M(mu=1))
-    sage: nn_om_circuits = [c for c in om.circuits() if c >= 0]
-    sage: nn_om_circuits
-    [(0000+0+++000), (+0++00000+00), (0+0++0++00+0), (+0++0+0+000+)]
-
-Using their support, we find the nonnegative circuits (of the matrix)::
-
-    sage: supports = [c.support() for c in nn_om_circuits]
-    sage: [c for c in circuits(M(mu=1)) if c.support() in supports]
+    sage: forget()
+    sage: non_negative_vectors(circuits(M(mu=1)))
     [(0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0),
      (1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0),
      (0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0),
      (1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1)]
 """
+
+#############################################################################
+#  Copyright (C) 2025                                                       #
+#          Marcus S. Aichmayr (aichmayr@mathematik.uni-kassel.de)           #
+#                                                                           #
+#  Distributed under the terms of the GNU General Public License (GPL)      #
+#  either version 3, or (at your option) any later version                  #
+#                                                                           #
+#  http://www.gnu.org/licenses/                                             #
+#############################################################################
+
+from sage.modules.free_module_element import vector
+
+from sign_vectors import sign_vector
+
+
+def non_negative_vectors(vectors: list[vector]) -> list[vector]:
+    r"""
+    Return nonnegative vectors.
+
+    INPUT:
+
+    - ``vectors`` -- an iterable of vectors
+
+    OUTPUT:
+
+    Return all vectors that are nonnegative in each component.
+    If a vector is nonpositive in each component, its negative is returned.
+
+    EXAMPLES::
+
+        sage: from sign_crn.utility import non_negative_vectors
+        sage: l = [vector([1, 1, 0, -1]), vector([0, 0, 0, 0]), vector([1, 0, 0, 1])]
+        sage: l
+        [(1, 1, 0, -1), (0, 0, 0, 0), (1, 0, 0, 1)]
+        sage: non_negative_vectors(l)
+        [(0, 0, 0, 0), (1, 0, 0, 1)]
+        sage: var("a")
+        a
+        sage: evs = [vector([0, 0, 1, 0, 0]), vector([0, 0, 0, 1, 0]), vector([-1, -a, 0, 0, a])]
+        sage: evs
+        [(0, 0, 1, 0, 0), (0, 0, 0, 1, 0), (-1, -a, 0, 0, a)]
+        sage: non_negative_vectors(evs)
+        ...
+        UserWarning: Cannot determine sign of symbolic expression, using 0 instead.
+        [(0, 0, 1, 0, 0), (0, 0, 0, 1, 0), (1, a, 0, 0, -a)]
+        sage: assume(a > 0)
+        sage: non_negative_vectors(evs)
+        [(0, 0, 1, 0, 0), (0, 0, 0, 1, 0)]
+
+    TESTS::
+
+        sage: l = [vector([x, 0, 0])]
+        sage: non_negative_vectors(l)
+        [(x, 0, 0)]
+    """
+    result = []
+    for element in vectors:
+        if sign_vector(element) >= 0:
+            result.append(element)
+        elif sign_vector(element) < 0:
+            result.append(-element)
+    return result
