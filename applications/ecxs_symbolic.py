@@ -15,7 +15,7 @@ are required::
 
 We define a matrix with a parameter::
 
-    sage: var('mu')
+    sage: var("mu")
     mu
     sage: M = matrix([[0, -1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0],
     ....:             [0, 0, 1, 0, 0, -1, 0, 0, 0, -1, 0, 0],
