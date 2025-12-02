@@ -37,7 +37,8 @@ We define a matrix with a parameter::
 
 We compute all circuits (of the matrix)::
 
-    sage: circuits(M)
+    sage: elements = circuits(M)
+    sage: elements
     [(mu - 1, mu^2 - 2*mu + 1, mu - 1, mu - 1, 1, mu - 1, 1, 1, -mu^2 + 2*mu, 0, 0, 0),
      (1, mu - 1, 1, 1, mu - 1, mu^2 - 2*mu + 1, mu - 1, mu - 1, 0, -mu^2 + 2*mu, 0, 0),
      (mu^2 - mu, mu, mu^2 - mu, mu, mu, mu^2 - mu, mu, mu, 0, 0, -mu^2 + 2*mu, 0),
@@ -81,7 +82,7 @@ We compute the nonnegative circuits of the corresponding oriented matroid::
 Using their support, we find the nonnegative circuits (of the matrix)::
 
     sage: supports = [c.support() for c in nn_om_circuits]
-    sage: [c for c in circuits(M) if c.support() in supports]
+    sage: [c for c in elements if c.support() in supports]
     [(mu, 0, mu, 1, 0, 0, 0, 0, 0, mu, -mu + 1, 0),
      (mu^2, 0, mu^2, mu, 0, mu^2, 0, mu, 0, 0, -mu^2 + mu, mu),
      (0, 0, 0, 0, mu, 0, mu, 1, mu, 0, 0, -mu + 1),
@@ -102,7 +103,7 @@ We compute the nonnegative circuits of the corresponding oriented matroid::
 Using their support, we find the nonnegative circuits (of the matrix)::
 
     sage: supports = [c.support() for c in nn_om_circuits]
-    sage: [c for c in circuits(M) if c.support() in supports]
+    sage: [c for c in elements if c.support() in supports]
     [(mu - 1, mu^2 - 2*mu + 1, mu - 1, mu - 1, 1, mu - 1, 1, 1, -mu^2 + 2*mu, 0, 0, 0),
      (1, mu - 1, 1, 1, mu - 1, mu^2 - 2*mu + 1, mu - 1, mu - 1, 0, -mu^2 + 2*mu, 0, 0),
      (mu^2 - mu, mu, mu^2 - mu, mu, mu, mu^2 - mu, mu, mu, 0, 0, -mu^2 + 2*mu, 0),
