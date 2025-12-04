@@ -139,7 +139,7 @@ def non_negative_vectors(vectors: list[vector]) -> list[vector]:
 
     EXAMPLES::
 
-        sage: from sign_crn.utility import non_negative_vectors
+        sage: from applications.ecxs_symbolic import non_negative_vectors
         sage: l = [vector([1, 1, 0, -1]), vector([0, 0, 0, 0]), vector([1, 0, 0, 1])]
         sage: l
         [(1, 1, 0, -1), (0, 0, 0, 0), (1, 0, 0, 1)]
