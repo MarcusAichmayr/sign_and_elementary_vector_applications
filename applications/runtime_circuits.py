@@ -55,7 +55,7 @@ Polynomial rings
 Next, we consider a polynomial matrix with three variables::
 
     sage: M = random_matrix(PolynomialRing(ZZ, "a, b, c"), 5, 15)
-    sage: circuits(M)
+    sage: circuits(M) # long time
     ...
     sage: timeit("circuits(M)") # long time
     ...
@@ -66,7 +66,7 @@ Algebraic numbers
 Finally, we take matrices over the algebraic numbers::
 
     sage: M = random_matrix(QQbar, 4, 15)
-    sage: circuits(M)
+    sage: circuits(M) # long time
     ...
     sage: timeit("circuits(M)") # long time
     ...
@@ -84,5 +84,7 @@ since the determinants can occupy a lot of memory::
 
     sage: M = random_matrix(QQbar, 5, 21)
     sage: circuit_supports(M) # long time
+    ...
+    sage: timeit("circuit_supports(M)") # long time
     ...
 """
