@@ -6,6 +6,9 @@ install:
 test:
 	sage -t applications/
 
+test-long:
+    sage -t --long --warn-long 5 applications/
+
 doc:
 	cd docs && make html
 
