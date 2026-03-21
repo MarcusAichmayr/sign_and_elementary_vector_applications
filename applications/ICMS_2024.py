@@ -330,14 +330,14 @@ determined by kernels of the matrices is nondegenerate.
 This is exactly the case for :math:`a \in (0, 1) \cup (1, 2)`.
 We demonstrate this for specific values::
 
-    sage: degeneracy_condition(P, Pt(a=1/2))
+    sage: nondegeneracy_condition(P, Pt(a=1/2))
+    True
+    sage: nondegeneracy_condition(P, Pt(a=3/2))
+    True
+    sage: nondegeneracy_condition(P, Pt(a=1))
     False
-    sage: degeneracy_condition(P, Pt(a=3/2))
+    sage: nondegeneracy_condition(P, Pt(a=2))
     False
-    sage: degeneracy_condition(P, Pt(a=1))
-    True
-    sage: degeneracy_condition(P, Pt(a=2))
-    True
-    sage: degeneracy_condition(P, Pt(a=3))
-    True
+    sage: nondegeneracy_condition(P, Pt(a=3))
+    False
 """

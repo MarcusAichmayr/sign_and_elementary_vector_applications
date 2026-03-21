@@ -178,7 +178,7 @@ Exactly one CBE (Deficiency Zero Theorem for GMAK)
 --------------------------------------------------
 
 We use sign vector conditions to check whether there is exactly one CBE.
-There is also a (recursive) degeneracy condition
+There is also a (recursive) nondegeneracy condition
 that certifies (un)solvability of linear inequality systems with elementary vectors.
 See [AMR24]_ for details.
 
