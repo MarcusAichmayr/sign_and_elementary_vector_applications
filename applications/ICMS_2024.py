@@ -302,27 +302,27 @@ Depending on this parameter, the network has a unique positive CBE::
     sage: var("a")
     a
     sage: assume(a > 0)
-    sage: Q = matrix([[1, 0, 0, 0, 0, 1], [0, 1, 0, 0, 0, -1], [0, 0, 1, 1, 2, 0]])
-    sage: Q
-    [ 1  0  0  0  0  1]
-    [ 0  1  0  0  0 -1]
-    [ 0  0  1  1  2  0]
-    sage: Qt = matrix([[-1, -1, 0, 0, -2, 0], [0, 0, 1, 1, 0, 0], [0, 0, 0, 0, a, 1]])
-    sage: Qt
-    [-1 -1  0  0 -2  0]
-    [ 0  0  1  1  0  0]
-    [ 0  0  0  0  a  1]
+    sage: P = matrix([[0, 0, 1, 1, -1, 0], [1, -1, 0, 0, 0, -1], [0, 0, 1, -1, 0, 0]])
+    sage: P
+    [ 0  0  1  1 -1  0]
+    [ 1 -1  0  0  0 -1]
+    [ 0  0  1 -1  0  0]
+    sage: Pt = matrix([[1, 1, 0, 0, -1, a], [1, -1, 0, 0, 0, 0], [0, 0, 1, -1, 0, 0]])
+    sage: Pt
+    [ 1  1  0  0 -1  a]
+    [ 1 -1  0  0  0  0]
+    [ 0  0  1 -1  0  0]
 
 The first two conditions depend on the sign vectors corresponding
 to the rows of these matrices which are independent of the specific value for :math:`a`::
 
-    sage: uniqueness_condition(Q, Qt)
+    sage: uniqueness_condition(P, Pt)
     True
 
 Hence, there exists at most one equilibrium.
 Also the face condition is satisfied::
 
-    sage: face_condition(Q, Qt)
+    sage: face_condition(P, Pt)
     True
 
 For specific values of :math:`a`, the pair of subspaces
@@ -330,14 +330,14 @@ determined by kernels of the matrices is nondegenerate.
 This is exactly the case for :math:`a \in (0, 1) \cup (1, 2)`.
 We demonstrate this for specific values::
 
-    sage: nondegeneracy_condition(Q, Qt(a=1/2))
+    sage: nondegeneracy_condition(P, Pt(a=1/2))
     True
-    sage: nondegeneracy_condition(Q, Qt(a=3/2))
+    sage: nondegeneracy_condition(P, Pt(a=3/2))
     True
-    sage: nondegeneracy_condition(Q, Qt(a=1))
+    sage: nondegeneracy_condition(P, Pt(a=1))
     False
-    sage: nondegeneracy_condition(Q, Qt(a=2))
+    sage: nondegeneracy_condition(P, Pt(a=2))
     False
-    sage: nondegeneracy_condition(Q, Qt(a=3))
+    sage: nondegeneracy_condition(P, Pt(a=3))
     False
 """
