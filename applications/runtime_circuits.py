@@ -79,8 +79,8 @@ Computing only the support of the circuits saves memory and time::
     ...
 
 Especially, for bigger matrices over the algebraic numbers,
-we can only compute the support of the circuits
-since the determinants can occupy a lot of memory::
+the determinants can occupy a huge amount of memory.
+Therefore, we only compute the support of the circuits::
 
     sage: M = random_matrix(QQbar, 5, 21)
     sage: circuit_supports(M) # long time
