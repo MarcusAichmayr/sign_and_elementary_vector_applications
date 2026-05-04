@@ -5,7 +5,7 @@ MoRN seminar software showcase 2025.
 Sign Vector Conditions for Reaction Networks
 ============================================
 
-A simple reaction network
+A Simple Reaction Network
 =========================
 
 We define a reaction network::
@@ -86,7 +86,7 @@ We update our reaction network with kinetic-order complexes::
      -k_2_0*x_A^c*x_D + k_1_2*x_C,
      k_3_4*x_A - k_4_3*x_E)
 
-Representing matrices
+Representing Matrices
 =====================
 
 The network is defined by the following matrices::
@@ -128,7 +128,7 @@ The network is defined by the following matrices::
     [             0              0              0         -k_3_4          k_4_3]
     [             0              0              0          k_3_4         -k_4_3]
 
-Network properties
+Network Properties
 ==================
 
 We show some properties of the network::
@@ -140,7 +140,7 @@ We show some properties of the network::
     sage: rn.deficiency_kinetic_order
     0
 
-Sign vector conditions
+Sign Vector Conditions
 ======================
 
 We study uniqueness and existence of complex-balanced equilibria (CBE).
@@ -187,7 +187,7 @@ There is exactly one CBE::
     sage: rn_instantiated.has_exactly_one_cbe()
     True
 
-Elementary vectors (circuits)
+Elementary Vectors (Circuits)
 =============================
 
 We define a matrix::
@@ -205,7 +205,7 @@ We compute the elements with minimal-support in the kernel of `P`::
     sage: circuits(P)
     [(4, -2, 1, 0), (6, -3, 0, 1), (0, 0, -3, 2)]
 
-Sign vectors
+Sign Vectors
 ============
 
 Next, we compute the sign vectors with minimal support::

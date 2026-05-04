@@ -8,7 +8,7 @@ A SageMath Package for Elementary and Sign Vectors with Applications to Chemical
 Here are the up-to-date examples appearing in [AMR24]_ for `ICMS 2024 <https://icms-conference.org/2024/>`_.
 The paper is also available at `ARXIV <https://arxiv.org/abs/2407.12660>`_.
 
-Elementary vectors
+Elementary Vectors
 ==================
 
 Functions dealing with elementary vectors (circuits of a subspace given by a matrix)
@@ -26,7 +26,7 @@ We compute elementary vectors (circuits), using maximal minors::
     sage: circuits(M)
     [(1, -1, 0, 0), (4, 0, -2, 1), (0, 4, -2, 1)]
 
-Solvability of linear inequality systems
+Solvability of Linear Inequality Systems
 ========================================
 
 Our package `certlin <https://github.com/MarcusAichmayr/certlin>`_
@@ -64,7 +64,7 @@ The package can certify whether the system has a solution or not::
 
 Therefore, the system has a solution.
 
-Sign vectors and oriented matroids
+Sign Vectors and Oriented Matroids
 ==================================
 
 The package `sign_vectors <https://github.com/MarcusAichmayr/sign_vectors>`_
@@ -94,7 +94,7 @@ We consider an oriented matroid given by a matrix and compute the cocircuits and
      (+0-+),
      (++-+)}
 
-Chemical reaction networks
+Chemical Reaction Networks
 ==========================
 
 The package `sign_crn <https://github.com/MarcusAichmayr/sign_crn>`_
@@ -292,7 +292,7 @@ Similarly, we can use the maximal minors to study uniqueness of CBE::
 
 Hence, positive CBE are unique if and only if :math:`a, b \geq 0` and :math:`a \geq c`.
 
-Unique existence of CBE
+Unique Existence of CBE
 -----------------------
 
 Now, we consider a network given by two matrices involving a parameter.

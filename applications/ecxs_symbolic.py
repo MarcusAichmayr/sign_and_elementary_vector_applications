@@ -1,8 +1,8 @@
 r"""
-ECXs symbolic example of [MPSZ25]_.
+ECXs Symbolic Example of [MPSZ25]_.
 
 =====================
-ECXs symbolic example
+ECXs Symbolic Example
 =====================
 
 We compute the nonnegative circuits (elementary vectors) of a matrix with a parameter appearing in [MPSZ25]_.

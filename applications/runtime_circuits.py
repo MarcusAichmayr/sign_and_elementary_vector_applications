@@ -1,8 +1,8 @@
 r"""
-Runtime of circuits
+Runtime of Circuits
 
 ===================
-Runtime of circuits
+Runtime of Circuits
 ===================
 
 We demonstrate how to test the runtime of the package `elementary_vectors <https://github.com/MarcusAichmayr/elementary_vectors>`_::
@@ -28,7 +28,7 @@ We generate random integer matrices and time the computation of their circuits::
     sage: timeit("circuits(M)") # long time
     ...
 
-Field extensions
+Field Extensions
 ================
 
 Next, we generate a matrix over :math:`\mathbb{Z}[\sqrt{2}]`::
@@ -49,7 +49,7 @@ Now, we generate a matrix over :math:`\mathbb{Z}[\sqrt{2}, \sqrt{3}, \sqrt{5}]`:
     sage: timeit("circuits(M)") # long time
     ...
 
-Polynomial rings
+Polynomial Rings
 ================
 
 Next, we consider a polynomial matrix with three variables::
@@ -60,7 +60,7 @@ Next, we consider a polynomial matrix with three variables::
     sage: timeit("circuits(M)") # long time
     ...
 
-Algebraic numbers
+Algebraic Numbers
 =================
 
 Finally, we take matrices over the algebraic numbers::
