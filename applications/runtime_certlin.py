@@ -24,16 +24,16 @@ We define a random linear inequality system::
 
 There are different commands for certifying the solvability of the system::
 
-    sage: S.certify()
-    ...
-    sage: S.certify(random=True)
-    ...
+    sage: S.certify() # random
+    (False, (0, 0, -264, 0, -186, 182, 190, 0, -178, 38))
+    sage: S.certify(random=True) # random
+    (False, (0, 0, 240, 60, 120, -180, -120, 240, 0, 0))
 
 Consult the documentation of the package for the other commands.
 Use the ``timeit`` command to test the runtime of the different commands::
 
     sage: timeit("S.certify()") # long time
-    ...
+    5 loops, best of 3: 87.5 ms per loop
 
 To compare the runtime with polyhedral computations, we need to translate the system into a polyhedron::
 
@@ -41,6 +41,7 @@ To compare the runtime with polyhedral computations, we need to translate the sy
     sage: P = polyhedron_from_general_system(S)
     sage: P # random
     The empty polyhedron in QQ^6
+    sage: P = polyhedron_from_general_system(S, backend="polymake") # requires polymake
 
 We consider the polyhedron of the dual system::
 
@@ -75,9 +76,7 @@ def polyhedron_from_general_system(system: LinearInequalitySystem, backend: str 
     - ``system`` -- a linear inequality system
     - ``backend`` -- a backend for polyhedra (default: ``None``)
 
-    NOTE::
-
-        To use backends like ``"normaliz"`` and ``"polymake"``, see the documentation of the ``Polyhedron`` class.
+    To use backends like ``"normaliz"`` and ``"polymake"``, see the documentation of the ``Polyhedron`` class.
     """
     equalities = []
     inequalities = []
