@@ -17,6 +17,7 @@ Visit the `repository on GitHub <https://github.com/MarcusAichmayr/sign_and_elem
     :toctree: generated
 
     applications.runtime_circuits
+    applications.runtime_oriented_matroids
     applications.runtime_certlin
     applications.ecxs_symbolic
 
