@@ -41,7 +41,7 @@ To compare the runtime with polyhedral computations, we need to translate the sy
     sage: P = polyhedron_from_general_system(S)
     sage: P # random
     The empty polyhedron in QQ^6
-    sage: P = polyhedron_from_general_system(S, backend="polymake") # requires polymake
+    sage: P = polyhedron_from_general_system(S, backend="polymake") # optional - polymake
 
 We consider the polyhedron of the dual system::
 
