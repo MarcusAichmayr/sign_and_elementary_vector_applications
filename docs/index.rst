@@ -3,15 +3,16 @@ Applications of sign vectors and elementary vectors
 
 Visit the `repository on GitHub <https://github.com/MarcusAichmayr/sign_and_elementary_vector_applications>`_.
 
-.. rubric:: Conferences and presentations
+.. rubric:: Conferences and Presentations
 
 .. autosummary::
     :toctree: generated
 
-    applications.ICMS_2024
+    applications.dissertation_examples
     applications.MoRN_2025
+    applications.ICMS_2024
 
-.. rubric:: Other applications
+.. rubric:: Runtime Tests
 
 .. autosummary::
     :toctree: generated
@@ -19,9 +20,21 @@ Visit the `repository on GitHub <https://github.com/MarcusAichmayr/sign_and_elem
     applications.runtime_circuits
     applications.runtime_oriented_matroids
     applications.runtime_certlin
+
+.. rubric:: Other Applications
+
+.. autosummary::
+    :toctree: generated
+
     applications.ecxs_symbolic
 
 .. rubric:: References
+
+.. [Aic26] Marcus S. Aichmayr.
+    "Computing Circuits and Sign Vectors with Applications to Linear Inequality Systems and Reaction Networks".
+    Submitted.
+    PhD thesis. Kassel,
+    Germany, 2026.
 
 .. [AMR24] Marcus S. Aichmayr, Stefan Müller, and Georg Regensburger.
     "A SageMath package for elementary and sign vectors with applications to chemical reaction networks".

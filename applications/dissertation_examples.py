@@ -1,12 +1,11 @@
 r"""
-Up-to-date examples of [DissTODO]_.
+Up-to-date examples of [Aic26]_.
 
 ========================================================================================================
 Computing Circuits and Sign Vectors with Applications to Linear Inequality Systems and Reaction Networks
 ========================================================================================================
 
-Here are the up-to-date examples appearing in [DissTODO]_.
-TODO link to diss
+Here are the up-to-date examples appearing in [Aic26]_.
 
 Circuits of a Matrix
 ====================
