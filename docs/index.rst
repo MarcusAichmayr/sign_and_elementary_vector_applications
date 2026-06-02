@@ -12,7 +12,7 @@ Visit the `repository on GitHub <https://github.com/MarcusAichmayr/sign_and_elem
     applications.MoRN_2025
     applications.ICMS_2024
 
-.. rubric:: Runtime Tests
+.. rubric:: Runtime Experiments
 
 .. autosummary::
     :toctree: generated

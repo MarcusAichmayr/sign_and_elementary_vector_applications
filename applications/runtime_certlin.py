@@ -1,8 +1,8 @@
 r"""
-Runtime of certlin
+Runtime of Certlin
 
 ==================
-Runtime of certlin
+Runtime of Certlin
 ==================
 
 We demonstrate how to test the runtime of the package `certlin <https://github.com/MarcusAichmayr/certlin>`_::
