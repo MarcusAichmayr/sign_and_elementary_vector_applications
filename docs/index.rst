@@ -1,5 +1,5 @@
-Applications of Sign Vectors and Elementary Vectors (Circuits)
-==============================================================
+Applications of Sign Vectors and Elementary Vectors
+===================================================
 
 Visit the `repository on GitHub <https://github.com/MarcusAichmayr/sign_and_elementary_vector_applications>`_.
 

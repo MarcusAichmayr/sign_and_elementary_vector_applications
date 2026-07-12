@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as follows."
+
+title: "Applications of Sign and Elementary Vectors"
+type: software
+authors:
+  - family-names: "Aichmayr"
+    given-names: "Marcus S."
+    orcid: "https://orcid.org/0009-0008-8362-2644"
+
+version: "1.0"
+date-released: "2026-07-12"
+
+repository-code: "https://github.com/MarcusAichmayr/sign_and_elementary_vector_applications"
+
+identifiers:
+  - type: doi
+    value: todo
+
+license: "GPL-3.0"

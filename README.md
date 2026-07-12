@@ -1,4 +1,4 @@
-# Applications of sign and elementary vectors
+# Applications of Sign and Elementary Vectors
 
 In this repository,
 we present [applications, illustrative examples, and runtime experiments](https://marcusaichmayr.github.io/sign_and_elementary_vector_applications/) of the SageMath packages:

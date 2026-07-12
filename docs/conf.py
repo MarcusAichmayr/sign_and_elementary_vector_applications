@@ -23,7 +23,7 @@ import sage.all
 
 # -- Project information -----------------------------------------------------
 
-project = u'applications of sign vectors and elementary vectors'
+project = u'applications of sign and elementary vectors'
 copyright = u'2026, Marcus S. Aichmayr'
 author = u'Marcus S. Aichmayr'
 
