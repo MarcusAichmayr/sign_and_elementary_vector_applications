@@ -20,5 +20,5 @@ setup(
     packages=[
         "applications",
     ],
-    install_requires=["elementary_vectors>=2.4", "sign_vectors>=1.4", "certlin>=1.4", "signcrn>=2.5"],
+    install_requires=["elementary_vectors>=2.4", "sign_vectors>=1.4", "certlin>=1.4", "sign_crn>=2.5"],
 )
