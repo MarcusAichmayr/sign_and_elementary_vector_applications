@@ -15,6 +15,6 @@ repository-code: "https://github.com/MarcusAichmayr/sign_and_elementary_vector_a
 
 identifiers:
   - type: doi
-    value: todo
+    value: 10.5281/zenodo.21323474
 
 license: "GPL-3.0"
