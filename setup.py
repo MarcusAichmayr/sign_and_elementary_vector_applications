@@ -9,7 +9,7 @@ def readfile(filename):
 
 setup(
     name="sign_and_elementary_vector_applications",
-    version="1.0",
+    version="1.1",
     description="Applications of sign vectors and elementary vectors",
     long_description=readfile("README.md"),
     long_description_content_type="text/markdown",
@@ -20,4 +20,5 @@ setup(
     packages=[
         "applications",
     ],
+    install_requires=["elementary_vectors>=2.4", "sign_vectors>=1.4", "certlin>=1.4", "signcrn>=2.5"],
 )
